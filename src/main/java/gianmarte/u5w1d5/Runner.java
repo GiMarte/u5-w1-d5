@@ -42,13 +42,13 @@ public class Runner implements CommandLineRunner {
 
 }@Override public void run(String... args)throws Exception {
     try {
-        User user1 = new User("giancarlo@gmail.com", "giglio", "carlo", "bananone69");
-       // userService.saveUser(user1);
-        Building build1 = new Building("Grand apartment", "Via John Fitzgerald kennedy", "Prague");
-     //   buildingService.saveBuilding(build1);
-        Workstation workstation1 = new Workstation("Postazione lavoro",WorkstationType.PRIVATE,5,buildingService.findByID(1));
-      //  workstationService.saveWorkstation(workstation1);
-        Reservation res1 = new Reservation(LocalDate.now(),userService.findByID(1),workstationService.findByID(1));
+        User user1 = new User("lucapesto@hotmail.it", "pesto", "luca", "pestilu");
+        //userService.saveUser(user1);
+        Building build1 = new Building("Grandioso office", "Via Matteotti", "Barcelona");
+       // buildingService.saveBuilding(build1);
+        Workstation workstation1 = new Workstation("Postazione lavoro",WorkstationType.PRIVATE,10,buildingService.findByID(2));
+       // workstationService.saveWorkstation(workstation1);
+        Reservation res1 = new Reservation(LocalDate.now(),userService.findByID(3),workstationService.findByID(1));
         reservationService.saveReservation(res1);
 
     } catch (NotFoundException | ValidationException ex) {
