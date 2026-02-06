@@ -17,7 +17,8 @@ public class UserService {
     this.userRepository = userRepository;
 }
     public void saveUser(User user){
-        if (userRepository.existsByEmail(user.getEmail()))throw new ValidationException("L'utente e' gia esistente");
+        if (userRepository.existsByEmail(user.getEmail()) || userRepository.existsByUsername(user.getSurname()) )throw new ValidationException("L'utente e' gia esistente");
         this.userRepository.save(user);
+        log.info("L'utente e' stato salvato correttamente");
     }
 }
