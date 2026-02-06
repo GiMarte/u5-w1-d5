@@ -13,7 +13,6 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long userId;
-
     private String username;
     private String name;
     private String surname;

@@ -4,28 +4,26 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @NoArgsConstructor
 @Data
 @Entity
 @Table(name = "reservations")
 public class Reservation {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long reservationId;
-    private LocalDate date;
-
+    private LocalDateTime date;
     @ManyToOne
-    private User userId;
+    @JoinColumn(name = "user_id")
+    private User user;
+    @ManyToOne
+    @JoinColumn(name = "workstation_id")
+    private Workstation workstation;
 
-    @OneToMany
-    private long workstation;
-
-    public Reservation(long workstation, User userId, LocalDate date) {
-    this.workstation = workstation;
-    this.userId = userId;
+  public Reservation(LocalDateTime date, User user, Workstation workstation) {
     this.date = date;
-}
-}
+    this.user = user;
+    this.workstation = workstation;
+}}

@@ -14,12 +14,9 @@ public class Workstation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long workstationId;
     private String description;
-
     @Enumerated(EnumType.STRING)
     private WorkstationType workstationType;
-
     private int maxPeople;
-
     @ManyToOne
     @JoinColumn(name = "building_id")
     private Building building;
@@ -29,4 +26,5 @@ public class Workstation {
         this.workstationType = workstationType;
         this.maxPeople = maxPeople;
         this.building = building;
-}}
+}
+}

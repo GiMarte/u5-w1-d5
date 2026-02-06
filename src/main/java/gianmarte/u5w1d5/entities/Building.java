@@ -12,7 +12,6 @@ public class Building {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long buildingId;
-
     private String name;
     private String adress;
     private String city;
@@ -21,4 +20,5 @@ public class Building {
     this.name = name;
     this.adress = adress;
     this.city = city;
-}}
+}
+}
