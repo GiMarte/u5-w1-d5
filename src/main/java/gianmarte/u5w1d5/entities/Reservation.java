@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @Data
@@ -14,7 +14,7 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long reservationId;
-    private LocalDateTime date;
+    private LocalDate date;
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -22,7 +22,7 @@ public class Reservation {
     @JoinColumn(name = "workstation_id")
     private Workstation workstation;
 
-  public Reservation(LocalDateTime date, User user, Workstation workstation) {
+  public Reservation(LocalDate date, User user, Workstation workstation) {
     this.date = date;
     this.user = user;
     this.workstation = workstation;
