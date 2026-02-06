@@ -24,8 +24,7 @@ public class Workstation {
     @JoinColumn(name = "building_id")
     private Building building;
 
-    public Workstation(long workstationId, String description, WorkstationType workstationType, int maxPeople, Building building) {
-        this.workstationId = workstationId;
+    public Workstation( String description, WorkstationType workstationType, int maxPeople, Building building) {
         this.description = description;
         this.workstationType = workstationType;
         this.maxPeople = maxPeople;

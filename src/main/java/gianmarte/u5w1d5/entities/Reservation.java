@@ -14,18 +14,18 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+    private long reservationId;
     private LocalDate date;
 
     @ManyToOne
-    private User user;
+    private User userId;
 
     @OneToMany
     private long workstation;
 
-    public Reservation(long workstation, User user, LocalDate date) {
+    public Reservation(long workstation, User userId, LocalDate date) {
     this.workstation = workstation;
-    this.user = user;
+    this.userId = userId;
     this.date = date;
 }
 }
