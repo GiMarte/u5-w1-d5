@@ -1,6 +1,7 @@
 package gianmarte.u5w1d5.services;
 
 import gianmarte.u5w1d5.entities.Building;
+import gianmarte.u5w1d5.exceptions.NotFoundException;
 import gianmarte.u5w1d5.exceptions.ValidationException;
 import gianmarte.u5w1d5.repositories.BuildingRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -23,4 +24,7 @@ public class BuildingService {
         log.info("L'edificio e' stato salvato correttamente");
     }
 
+    public Building findByID(long id) {
+        return buildiongRepository.findById(id).orElseThrow(() -> new NotFoundException("ID non trovato"));
+    }
 }
