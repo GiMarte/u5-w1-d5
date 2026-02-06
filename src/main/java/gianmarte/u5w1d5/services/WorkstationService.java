@@ -1,6 +1,7 @@
 package gianmarte.u5w1d5.services;
 
 import gianmarte.u5w1d5.entities.Workstation;
+import gianmarte.u5w1d5.exceptions.NotFoundException;
 import gianmarte.u5w1d5.exceptions.ValidationException;
 import gianmarte.u5w1d5.repositories.WorkstationRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -23,4 +24,9 @@ public class WorkstationService {
         workstationRepository.save(workstation);
         log.info("Postazione salvata correttamente");
     }
+
+    public Workstation findByID(long id) {
+        return workstationRepository.findById(id).orElseThrow(() -> new NotFoundException("Workstation non trovata"));
+    }
+
 }

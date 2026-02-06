@@ -27,4 +27,6 @@ public class BuildingService {
     public Building findByID(long id) {
         return buildiongRepository.findById(id).orElseThrow(() -> new NotFoundException("ID non trovato"));
     }
+
+
 }

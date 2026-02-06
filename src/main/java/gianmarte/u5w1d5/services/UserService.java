@@ -1,6 +1,7 @@
 package gianmarte.u5w1d5.services;
 
 import gianmarte.u5w1d5.entities.User;
+import gianmarte.u5w1d5.exceptions.NotFoundException;
 import gianmarte.u5w1d5.exceptions.ValidationException;
 import gianmarte.u5w1d5.repositories.UserRepository;
 import lombok.extern.slf4j.Slf4j;
@@ -21,4 +22,9 @@ public class UserService {
         this.userRepository.save(user);
         log.info("L'utente e' stato salvato correttamente");
     }
+
+    public User findByID(long id) {
+        return userRepository.findById(id).orElseThrow(() -> new NotFoundException("User non trovato"));
+    }
+
 }
